@@ -1,5 +1,5 @@
 import { Injectable } from '@nestjs/common';
-
+let nextId = 3;
 @Injectable()
 export class TodoService {
   private todos = [
@@ -13,7 +13,7 @@ export class TodoService {
   }
 
   create(todo: string) {
-    const newTodo = { id: Date.now(), todo, done: false };
+    const newTodo = { id: nextId++, todo, done: false };
     this.todos.push(newTodo);
     return newTodo;
   }
